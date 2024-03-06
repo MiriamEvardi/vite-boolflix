@@ -19,11 +19,19 @@ export default {
   },
 
 
-  created() {
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=5068815fa116495c9abeb543996c2c61&query=ritorno+al+futuro').then(res => {
-      this.store.movies = res.data.results;
-      console.log(res)
-    })
+  
+
+  methods: {
+    
+    movieFilter() {
+      axios.get('https://api.themoviedb.org/3/search/movie?api_key=5068815fa116495c9abeb543996c2c61&query=' + this.store.searchText).then(res => {
+        this.store.movies = res.data.results;
+        console.log('movies')
+        
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   },
 
 }
@@ -32,7 +40,7 @@ export default {
 
 <template>
 
-<AppHeader></AppHeader>
+<AppHeader @filter="movieFilter()"></AppHeader>
 <AppMain></AppMain>
 
 </template>

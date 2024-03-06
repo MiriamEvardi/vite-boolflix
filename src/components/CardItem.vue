@@ -14,7 +14,10 @@ export default {
 <template>
     <li class="card">
         <img :src="movie.backdrop_path" class="image">
-        <div> {{ movie.title }} </div>
+        <h2> {{ movie.title }} </h2>
+        <h3> {{ movie.original_title }} </h3>
+        <div> language: {{ movie.original_language }} </div>
+        <div> vote: {{ movie.vote_average }} </div>
     </li>
 
 </template>

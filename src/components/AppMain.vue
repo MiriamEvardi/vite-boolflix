@@ -33,6 +33,7 @@ export default {
         list-style-type: none;
 
         display: flex;
+        flex-direction: column;
         gap: 20px;
 
         background-color: white;
