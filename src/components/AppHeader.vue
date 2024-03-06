@@ -2,13 +2,12 @@
 
 export default {
 
-    name: 'AppHeader'
+    name: 'AppHeader',
 }
 
 </script>
 
 <template>
-    <div>ciao</div>
 
 </template>
 
