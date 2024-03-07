@@ -24,7 +24,7 @@ export default {
     methods: {
 
         getTvImage() {
-            return 'https://image.tmdb.org/t/p/w342' + this.tvSeries.poster_path;
+            return this.tvSeries.poster_path ? 'https://image.tmdb.org/t/p/w342' + this.tvSeries.poster_path : '';
         }
 
     }

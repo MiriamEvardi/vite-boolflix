@@ -23,7 +23,7 @@ export default {
     methods: {
 
         getMovieImage() {
-        return 'https://image.tmdb.org/t/p/w342' + this.movie.poster_path;
+        return this.movie.poster_path ? 'https://image.tmdb.org/t/p/w342' + this.movie.poster_path : '';
 }
 
 }
