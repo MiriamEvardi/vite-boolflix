@@ -23,15 +23,15 @@ export default {
 <template>
     <div class="container-main my-5">
         
-        <h2 class="text-white">film</h2>
-        <div class="d-flex flex-wrap justify-content-between">
+        <h2 v-if="store.movies.length != 0" class="text-white">MOVIES</h2>
+        <div class="d-flex flex-wrap">
             <CardItem v-for="currentCard in store.movies" 
                 :card="currentCard"></CardItem>
         </div>
 
-        <h2 class="text-white">tv series</h2>
+        <h2 v-if="store.tv.length != 0" class="text-white mt-5">TV SERIES</h2>
 
-        <div class="d-flex flex-wrap justify-content-between">
+        <div class="d-flex flex-wrap">
             <CardItem v-for="currentCard in store.tv" 
                 :card="currentCard">
            </CardItem>

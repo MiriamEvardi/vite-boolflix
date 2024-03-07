@@ -89,6 +89,7 @@ export default {
 
 <div class="flip-card">
   <div class="flip-card-inner">
+    
     <div class="flip-card-front">
         <img :src="getMovieImage()" class="image">
     </div>
@@ -101,8 +102,10 @@ export default {
             <img v-if="card.original_language in countryFlags" :src="countryFlags[card.original_language]" class="image">
             <div v-else> {{ card.original_language }} </div>
         </div>
+
         <div>{{ genres || 'cast non disponibile' }}</div>
         <div>{{ castList || 'cast non disponibile' }}</div>
+
         <div class="d-flex">
             <i v-for="currentVote in getStars()" :class="currentVote"></i>
             <span>{{ (card.vote_average / 2).toFixed(1) }}</span>
@@ -116,9 +119,9 @@ export default {
 <style lang="scss">
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 400px;
-  border: 1px solid #f1f1f1;   
+  width: 200px;
+  height: 300px;
+  border: 1px solid #000000;   
 }
 
 .flip-card-inner {
