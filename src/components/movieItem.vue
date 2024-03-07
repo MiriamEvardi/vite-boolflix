@@ -1,6 +1,5 @@
 <script>
 
-
 export default {
     name: 'movieItem',
 
@@ -8,15 +7,27 @@ export default {
         movie: Object
     },
 
+
     data() {
         return {
+
             countryFlags: {
                 'en': '/img/en-flag.jpg',
                 'it': '/img/it-flag.jpg',
                 'ko': '/img/kr-flag.jpg',
                 'ja': '/img/jp-flag.jpg',
                 'cn': '/img/cn-flag.jpg'
-            }
+            },
+
+            stars: [
+              'fa-regular fa-star',
+              'fa-regular fa-star',
+              'fa-regular fa-star',
+              'fa-regular fa-star',
+              'fa-regular fa-star'
+            ]
+
+
         };
     },
 
@@ -24,9 +35,19 @@ export default {
 
         getMovieImage() {
         return this.movie.poster_path ? 'https://image.tmdb.org/t/p/w342' + this.movie.poster_path : '';
-}
+        },
 
-}
+        getStars() {
+            const vote = Math.round(this.movie.vote_average / 2);
+
+            for(let i = 0; i < vote; i++) {
+
+              this.stars.splice(i, 1, 'fa-solid fa-star'); 
+            }
+
+            return this.stars;
+        }
+    }
 }
 
 </script>
@@ -40,7 +61,10 @@ export default {
             <img v-if="movie.original_language in countryFlags" :src="countryFlags[movie.original_language]" class="image">
             <div v-else> {{ movie.original_language }} </div>
         </div>
-        <div> vote: {{ movie.vote_average }} </div>
+        <div class="d-flex">
+            <i v-for="currentVote in getStars()" :class="currentVote"></i>
+            <span>{{ (movie.vote_average / 2).toFixed(1) }}</span>
+        </div>
     </div>
 
 </template>
