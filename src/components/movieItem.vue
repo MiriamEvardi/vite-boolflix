@@ -18,14 +18,22 @@ export default {
                 'cn': '/img/cn-flag.jpg'
             }
         };
-    }
+    },
+
+    methods: {
+
+        getMovieImage() {
+        return 'https://image.tmdb.org/t/p/w342' + this.movie.poster_path;
+}
+
+}
 }
 
 </script>
 
 <template>
     <div class="card">
-        <img :src="movie.backdrop_path" class="image">
+        <img :src="getMovieImage()" class="image">
         <h2> {{ movie.title }} </h2>
         <h3> {{ movie.original_title }} </h3>
         <div class="image-container">

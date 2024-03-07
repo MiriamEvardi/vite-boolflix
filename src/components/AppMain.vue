@@ -33,7 +33,7 @@ export default {
 
         <h2 class="text-white">tv series</h2>
         <div class="d-flex flex-wrap justify-content-between">
-            <tvSeriesItem v-for="currentCard in store.tvSeries" 
+            <tvSeriesItem v-for="currentCard in store.tv" 
                 :tvSeries="currentCard"></tvSeriesItem>
         </div>
     </div>

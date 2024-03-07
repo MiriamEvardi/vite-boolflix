@@ -17,15 +17,25 @@ export default {
                 'ja': '/img/jp-flag.jpg',
                 'cn': '/img/cn-flag.jpg'
             }
-        };
+        }
+    },
+
+
+    methods: {
+
+        getTvImage() {
+            return 'https://image.tmdb.org/t/p/w342' + this.tvSeries.poster_path;
+        }
+
     }
+
 }
 
 </script>
 
 <template>
     <div class="card">
-        <img class="image">
+        <img class="image" :src="getTvImage()">
         <h2> {{ tvSeries.name }} </h2>
         <h3> {{ tvSeries.original_name }} </h3>
         <div class="image-container">
