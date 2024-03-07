@@ -19,7 +19,11 @@
   box-sizing: border-box;
 }
 
-.container {
+body {
+  background-color: #242424;
+}
+
+.container-main {
   max-width: 1400px;
   margin: 0 auto;
 }

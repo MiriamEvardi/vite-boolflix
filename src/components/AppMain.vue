@@ -21,10 +21,12 @@ export default {
 </script>
 
 <template>
-    <ul>
-        <CardItem v-for="currentCard in store.movies" 
-            :movie="currentCard"></CardItem>
-    </ul>
+    <div class="container-main my-5">
+        <ul>
+            <CardItem v-for="currentCard in store.movies" 
+                :movie="currentCard"></CardItem>
+        </ul>
+    </div>
 </template>
 
 <style lang="scss">
@@ -33,10 +35,10 @@ export default {
         list-style-type: none;
 
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 20px;
 
-        background-color: white;
+        background-color: rgb(197, 68, 68);
         color: black;
     }
 </style>
