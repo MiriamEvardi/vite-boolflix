@@ -53,8 +53,13 @@ export default {
 </script>
 
 <template>
-    <div class="card">
+
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
         <img :src="getMovieImage()" class="image">
+    </div>
+    <div class="flip-card-back">
         <h2> {{ movie.title }} </h2>
         <h3> {{ movie.original_title }} </h3>
         <div class="image-container">
@@ -66,27 +71,54 @@ export default {
             <span>{{ (movie.vote_average / 2).toFixed(1) }}</span>
         </div>
     </div>
+  </div>
+</div>
 
 </template>
 
 <style lang="scss">
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 400px;
+  border: 1px solid #f1f1f1;   
+}
 
-    .card {
-        display: flex;
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 
-        width: calc((100% / 5) - ((20px * 4) / 5));
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
 
-        border: black 2px solid;
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
 
-    }
-
-    .image-container {
-        width: 30px;
-        height: 30px;
-    }
+.flip-card-front {
+  background-color: #bbb;
+  color: black; 
     
-    .image {
+  img {
         width: 100%;
+        height: 100%;
     }
+}
+
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
 
 </style>
