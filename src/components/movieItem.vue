@@ -2,7 +2,7 @@
 
 
 export default {
-    name: 'CardItem',
+    name: 'movieItem',
 
     props: {
         movie: Object
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-    <li class="card">
+    <div class="card">
         <img :src="movie.backdrop_path" class="image">
         <h2> {{ movie.title }} </h2>
         <h3> {{ movie.original_title }} </h3>
@@ -33,7 +33,7 @@ export default {
             <div v-else> {{ movie.original_language }} </div>
         </div>
         <div> vote: {{ movie.vote_average }} </div>
-    </li>
+    </div>
 
 </template>
 
