@@ -19,6 +19,33 @@ export default {
   },
 
 
+  created() {
+    axios.get('https://api.themoviedb.org/3/genre/tv/list?&api_key=5068815fa116495c9abeb543996c2c61')
+        .then(res => {
+            console.log(res.data);
+
+            for (let i = 0; i < res.data.genres.length; i++) {
+                store.genreList.push(res.data.genres[i]);
+            }
+        });
+
+    axios.get('https://api.themoviedb.org/3/genre/movie/list?&api_key=5068815fa116495c9abeb543996c2c61')
+        .then(res => {
+            console.log(res.data);
+
+            for (let i = 0; i < res.data.genres.length; i++) {
+                const genre = res.data.genres[i];
+
+                if (!store.genreList.some(existingGenre => existingGenre.id === genre.id)) {
+                    store.genreList.push(genre);
+                }
+            }
+
+            console.log(store.genreList);
+        });
+},
+
+
   methods: {
     
     movieFilter() {
