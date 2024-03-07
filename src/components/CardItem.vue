@@ -1,10 +1,10 @@
 <script>
 
 export default {
-    name: 'movieItem',
+    name: 'CardItem',
 
     props: {
-        movie: Object
+        card: Object
     },
 
 
@@ -34,11 +34,11 @@ export default {
     methods: {
 
         getMovieImage() {
-        return this.movie.poster_path ? 'https://image.tmdb.org/t/p/w342' + this.movie.poster_path : '';
+        return this.card.poster_path ? 'https://image.tmdb.org/t/p/w342' + this.card.poster_path : '';
         },
 
         getStars() {
-            const vote = Math.round(this.movie.vote_average / 2);
+            const vote = Math.round(this.card.vote_average / 2);
 
             for(let i = 0; i < vote; i++) {
 
@@ -60,15 +60,15 @@ export default {
         <img :src="getMovieImage()" class="image">
     </div>
     <div class="flip-card-back">
-        <h2> {{ movie.title }} </h2>
-        <h3> {{ movie.original_title }} </h3>
+        <h2> {{ card.title ? card.title : card.name }} </h2>
+        <h3> {{ card.original_title ? card.original_title : card.original_name }} </h3>
         <div class="image-container">
-            <img v-if="movie.original_language in countryFlags" :src="countryFlags[movie.original_language]" class="image">
-            <div v-else> {{ movie.original_language }} </div>
+            <img v-if="card.original_language in countryFlags" :src="countryFlags[card.original_language]" class="image">
+            <div v-else> {{ card.original_language }} </div>
         </div>
         <div class="d-flex">
             <i v-for="currentVote in getStars()" :class="currentVote"></i>
-            <span>{{ (movie.vote_average / 2).toFixed(1) }}</span>
+            <span>{{ (card.vote_average / 2).toFixed(1) }}</span>
         </div>
     </div>
   </div>
@@ -119,6 +119,15 @@ export default {
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
+}
+
+.image-container {
+  width: 30px;
+  height: 40px;
+
+  .image {
+    width: 100%;
+  }
 }
 
 </style>

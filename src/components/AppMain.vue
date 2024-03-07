@@ -1,8 +1,7 @@
 <script>
 import {store} from '../store.js'
 
-import movieItem from './movieItem.vue';
-import tvSeriesItem from './tvSeriesItem.vue';
+import CardItem from './CardItem.vue';
 
 export default {
     name: 'AppMain',
@@ -14,8 +13,7 @@ export default {
     },
 
     components: {
-        movieItem,
-        tvSeriesItem
+       CardItem,
     },
 
 }
@@ -27,15 +25,18 @@ export default {
         
         <h2 class="text-white">film</h2>
         <div class="d-flex flex-wrap justify-content-between">
-            <movieItem v-for="currentCard in store.movies" 
-                :movie="currentCard"></movieItem>
+            <CardItem v-for="currentCard in store.movies" 
+                :card="currentCard"></CardItem>
         </div>
 
         <h2 class="text-white">tv series</h2>
+
         <div class="d-flex flex-wrap justify-content-between">
-            <tvSeriesItem v-for="currentCard in store.tv" 
-                :tvSeries="currentCard"></tvSeriesItem>
+            <CardItem v-for="currentCard in store.tv" 
+                :card="currentCard">
+           </CardItem>
         </div>
+
     </div>
 </template>
 
