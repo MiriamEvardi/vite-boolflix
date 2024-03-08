@@ -3,6 +3,7 @@ import axios from 'axios';
 import {store} from './store.js'
 
 import AppHeader from './components/AppHeader.vue';
+import AppHome from './components/AppHome.vue';
 import AppMain from './components/AppMain.vue';
 
 export default {
@@ -15,6 +16,7 @@ export default {
 
   components: {
     AppHeader,
+    AppHome,
     AppMain
   },
 
@@ -38,8 +40,6 @@ export default {
                     store.genreList.push(genre);
                 }
             }
-
-            console.log(store.genreList);
         });
 },
 
@@ -67,6 +67,7 @@ export default {
 <template>
 
 <AppHeader @filter="movieFilter()"></AppHeader>
+<AppHome ></AppHome>
 <AppMain></AppMain>
 
 </template>

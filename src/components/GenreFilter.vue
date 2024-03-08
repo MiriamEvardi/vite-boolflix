@@ -9,6 +9,7 @@ export default {
     data() {
         return {
         store,
+        
     }
   },
 
@@ -34,24 +35,18 @@ export default {
 <template>
 
 <!-- Movies dropdown -->
-<div class="dropdown">
-  <button class="btn text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Movies
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li v-for="(currentGenre, index) in store.movieGenres" :key="index"><a class="dropdown-item" href="#">{{ currentGenre.name }}</a></li>
-  </ul>
-</div>
+
+<select v-model="store.movieGenreFilter" class="form-select" aria-label="Default select example">
+  <option selected>Movies</option>
+  <option v-for="(currentGenre, index) in store.movieGenres" :key="index" :value="currentGenre.id">{{ currentGenre.name }}</option>
+</select>
 
 <!-- Tv shows dropdown -->
-<div class="dropdown">
-  <button class="btn text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Tv Shows
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li v-for="(currentGenre, index) in store.tvGenres" :key="index"><a class="dropdown-item" href="#">{{ currentGenre.name }}</a></li>
-  </ul>
-</div>
+
+<select v-model="store.tvGenreFilter" class="form-select" aria-label="Default select example">
+  <option selected>Tv Shows</option>
+  <option v-for="(currentGenre, index) in store.tvGenres" :key="index" :value="currentGenre.id">{{ currentGenre.name }}</option>
+</select>
 
 </template>
 
