@@ -5,4 +5,5 @@ export const store = reactive({
     tv: [],
     searchText: '',
     genreList: [],
+    activeIndex: 0,
 })
