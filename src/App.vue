@@ -22,6 +22,7 @@ export default {
 
 
   created() {
+    
     axios.get('https://api.themoviedb.org/3/genre/tv/list?&api_key=5068815fa116495c9abeb543996c2c61')
         .then(res => {
 
@@ -41,7 +42,10 @@ export default {
                 }
             }
         });
-},
+
+        this.store.movieGenreFilter = "0";
+        this.store.tvGenreFilter = "0";
+  },
 
 
   methods: {
@@ -67,7 +71,7 @@ export default {
 <template>
 
 <AppHeader @filter="movieFilter()"></AppHeader>
-<AppHome ></AppHome>
+<AppHome></AppHome>
 <AppMain></AppMain>
 
 </template>

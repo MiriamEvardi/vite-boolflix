@@ -36,20 +36,24 @@ export default {
 
 <!-- Movies dropdown -->
 
-<select v-model="store.movieGenreFilter" class="form-select" aria-label="Default select example">
-  <option selected>Movies</option>
+<select v-model="store.movieGenreFilter" class=" bg-black border-0 text-white nav-select w-0 text-center">
+  <option value="0" selected>Movies</option>
   <option v-for="(currentGenre, index) in store.movieGenres" :key="index" :value="currentGenre.id">{{ currentGenre.name }}</option>
 </select>
 
 <!-- Tv shows dropdown -->
 
-<select v-model="store.tvGenreFilter" class="form-select" aria-label="Default select example">
-  <option selected>Tv Shows</option>
+<select v-model="store.tvGenreFilter" class=" bg-black border-0 text-white nav-select w-0 text-center">
+  <option value="0" selected>Tv Shows</option>
   <option v-for="(currentGenre, index) in store.tvGenres" :key="index" :value="currentGenre.id">{{ currentGenre.name }}</option>
 </select>
 
 </template>
 
 <style lang="scss">
+
+select.nav-select {
+  appearance: none;
+}
     
 </style>

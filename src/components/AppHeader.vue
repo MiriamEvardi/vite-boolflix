@@ -14,6 +14,12 @@ export default {
 
   components: {
     GenreFilter,
+  },
+
+  methods: {
+    homeRefresh() {
+        window.location.reload();
+    }
   }
   
 }
@@ -27,7 +33,7 @@ export default {
         <div class="d-flex align-items-center">
             <img class="navbar-brand px-5" src="/img/fontbolt.png"> 
 
-            <button class="btn text-white" type="button" aria-expanded="false">
+            <button @click="homeRefresh()" class="btn text-white" type="button" aria-expanded="false">
                 Home
             </button>
 

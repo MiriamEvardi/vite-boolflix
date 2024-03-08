@@ -48,7 +48,7 @@ export default {
           v-for="currentCard in store.movies"
           :key="currentCard.id"
           :card="currentCard"
-          v-show="!currentCard.genre_ids.indexOf(store.movieGenreFilter)"
+          v-show="!currentCard.genre_ids.indexOf(store.movieGenreFilter) || store.movieGenreFilter == 0"
           @click="openOverlay(currentCard)"
         ></CardItem>
       </div>
@@ -59,7 +59,7 @@ export default {
           v-for="currentCard in store.tv"
           :key="currentCard.id"
           :card="currentCard"
-          v-show="!currentCard.genre_ids.indexOf(store.tvGenreFilter)"
+          v-show="!currentCard.genre_ids.indexOf(store.tvGenreFilter) || store.tvGenreFilter == 0"
           @click="openOverlay(currentCard)"
         ></CardItem>
       </div>

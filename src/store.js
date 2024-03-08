@@ -13,6 +13,8 @@ export const store = reactive({
     movieGenres: [],
     movieGenreFilter: '',
     tvGenreFilter: '',
+    activeIndex: 0,
+
 
 
     convertGenreIds(ids) {
@@ -36,5 +38,13 @@ export const store = reactive({
             });
         })
 
+    },
+
+    getMovieImage(movie) {
+        return movie.poster_path ? 'https://image.tmdb.org/t/p/w342' + movie.poster_path : '';
+    },
+
+    slideThumbs(index) {
+        this.activeIndex = index;
     },
 })
