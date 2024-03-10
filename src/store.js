@@ -41,7 +41,7 @@ export const store = reactive({
     },
 
     getMovieImage(movie) {
-        return movie.poster_path ? 'https://image.tmdb.org/t/p/w342' + movie.poster_path : '';
+        return movie.poster_path ? 'https://image.tmdb.org/t/p/w342' + movie.poster_path : '/img/Background.jpg';
     },
 
     slideThumbs(index) {

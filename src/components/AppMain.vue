@@ -1,6 +1,5 @@
 <script>
 import {store} from '../store.js'
-import axios from 'axios';
 
 import CardItem from './CardItem.vue';
 import AppOverlay from './AppOverlay.vue'
@@ -32,6 +31,9 @@ export default {
     closeOverlay() {
          this.store.selectedCard = null;
         this.showOverlay = false;
+
+        this.store.castList = '';
+        this.store.genres = '';
     },
   },
 

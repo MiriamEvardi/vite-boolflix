@@ -46,7 +46,7 @@
             },
 
             getMoviePoster() {
-                return this.store.selectedCard.backdrop_path ? 'https://image.tmdb.org/t/p/w1280' + this.store.selectedCard.backdrop_path : 'Immagine non disponibile';
+                return this.store.selectedCard.backdrop_path ? 'https://image.tmdb.org/t/p/w1280' + this.store.selectedCard.backdrop_path : '/public/img/Background.jpg';
             },
 
         }
@@ -57,8 +57,10 @@
        
       <div class="overlay">
         <div class="overlay-content">
-            <img :src="getMoviePoster()" class="background-image">
-            <div class="overlay-close" @click="$emit('close')">X</div>
+            <div>
+                <img :src="getMoviePoster()" class="background-image">
+            </div>
+            <div class="overlay-close fs-3" @click="$emit('close')">X</div>
           
             <h2>{{ store.selectedCard.title || store.selectedCard.name }}</h2>
             <div>{{ store.genres || 'Genere non disponibile' }}</div>
@@ -92,16 +94,32 @@
         z-index: 9999; 
         justify-content: center;
         align-items: center;
+
+        
     }
 
     .overlay-content {
         position: relative;
         width: 1000px;
-        height: auto;
+        height: 800px;
 
-        background-color: rgb(28, 65, 65);
+        background-color: rgb(16, 17, 17);
         padding: 20px;
         border-radius: 10px;
+        overflow-y: scroll;
+
+    }
+    .overlay-content::-webkit-scrollbar {
+            width: 10px;
+    }
+
+    .overlay-content::-webkit-scrollbar-track {
+            background: rgb(0, 0, 0);
+    }
+
+    .overlay-content::-webkit-scrollbar-thumb {
+            background-color: rgb(43, 43, 43);
+            border-radius: 20px;
     }
 
     .background-image {

@@ -60,6 +60,7 @@ export default {
 <style lang="scss">
 .flip-card {
   background-color: transparent;
+  cursor: pointer;
   width: 200px;
   height: 300px;
   border: 1px solid #000000;   
@@ -108,6 +109,8 @@ export default {
 
   .image {
     width: 100%;
+    background-size: cover;
+    object-fit: cover;
   }
 }
 
