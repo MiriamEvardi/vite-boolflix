@@ -10,7 +10,8 @@ export default {
 
   data() {
     return {
-      store
+      store,
+      showResearch: false,
     }
   },
 
@@ -51,6 +52,7 @@ export default {
   methods: {
     
     movieFilter() {
+      this.showResearch = true;
       axios.get(`https://api.themoviedb.org/3/search/multi?api_key=5068815fa116495c9abeb543996c2c61&query=` + this.store.searchText).then(res => {
         this.store.movies = res.data.results.filter((el )=> {
           return el.media_type == 'movie'; 
@@ -71,8 +73,8 @@ export default {
 <template>
 
 <AppHeader @filter="movieFilter()"></AppHeader>
-<AppHome></AppHome>
-<AppMain></AppMain>
+<AppHome v-if="!showResearch"></AppHome>
+<AppMain v-if="store.tv.length != 0 && store.movies.length != 0 "></AppMain>
 
 </template>
 

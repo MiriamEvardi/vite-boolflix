@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 import {store} from '../store.js'
 
 export default {
@@ -46,7 +45,7 @@ export default {
   <div class="flip-card-inner">
     
     <div class="flip-card-front">
-        <img :src="getMovieImage()" class="image">
+        <img :src="store.getMovieImage(card)" class="image">
     </div>
 
     <div class="flip-card-back">
